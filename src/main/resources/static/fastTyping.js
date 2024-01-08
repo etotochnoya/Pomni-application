@@ -24,5 +24,16 @@ document.onkeypress = function (event) {
 }
 
 function getText(){
-    return 'rrtyuiop[]    qwqw dsfaasdfhjsah      hsk  '
+    const Http = new XMLHttpRequest();
+    const url = '';// here s your loccalhost 9000....))
+    Http.open("GET", url);
+    Http.send();
+
+    Http.onreadystatechange = (e) => {
+        if (this.readyState == 4 && this.status == 200) { // check that all is no go to hell))
+          console.log(Http.responseText);
+        }
+      }
+
+    return 'rrtyuiop[]    qwqw dsfaasdfhjsah      hsk  ' // just mock))
 }
