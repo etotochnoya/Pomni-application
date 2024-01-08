@@ -8,11 +8,11 @@ import org.javalite.activejdbc.DB;
 // IvanOgarkov (password x83KYd+0)
 public class DataBase {
 
-    final static String dbName = "IvanOgarkovDB";
-    final static String driver = "org.mariadb.jdbc.Driver";
-    final static String url = "jdbc:mariadb://193.233.51.21:3306/IvanOgarkovDB";
-    final static String username = "IvanOgarkov";
-    final static String pass = "x83KYd+0";
+    final static String dbName = System.getenv("DB_NAME");
+    final static String driver = System.getenv("DRIVER");
+    final static String url = String.format("jdbc:mariadb://%s", System.getenv("HOST"));
+    final static String username = System.getenv("USER");
+    final static String pass = System.getenv("PASS");
     final static String attribute = "string";
 
     public static void CreateConnection() {
