@@ -31,10 +31,10 @@ function getText(){
 
     Http.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) { // check that all is no go to hell))
-        console.log('AAAAAAAAA');
-        var response = JSON.parse(this.responseText);
-        var text = response.text;
-          console.log(text);
+            console.log(Http.responseText);
+            var response = JSON.parse(this.responseText);
+            var text = response.text;
+            console.log(text);
         }
       }
 
