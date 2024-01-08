@@ -25,13 +25,16 @@ document.onkeypress = function (event) {
 
 function getText(){
     const Http = new XMLHttpRequest();
-    const url = '';// here s your loccalhost 9000....))
+    const url = 'http://localhost:8080/fastTyping/data';// here s your loccalhost 9000....))
     Http.open("GET", url);
     Http.send();
 
-    Http.onreadystatechange = (e) => {
+    Http.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) { // check that all is no go to hell))
-          console.log(Http.responseText);
+        console.log('AAAAAAAAA');
+        var response = JSON.parse(this.responseText);
+        var text = response.text;
+          console.log(text);
         }
       }
 
