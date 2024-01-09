@@ -1,6 +1,6 @@
 const field = document.getElementById("cardField")
 
-const NUMBER_OF_CARD = 12
+const NUMBER_OF_CARD = 24
 const DEFAULT_COLOR = 'aliceblue'
 
 const cards = []
@@ -49,35 +49,45 @@ function cardRender(){
 
 let guessedCardCounter = 0
 let typpedCard = undefined
-
+let isWaiting = false
 field.onclick = function(event){
     let i = event.target.dataset.index
+    if(isWaiting)
+        return
     if(cards[i].isGuessed)
         return
 
     if(i != undefined){
-        if(typpedCard === undefined){
-            let i = event.target.dataset.index
-            
+        if(typpedCard === undefined){          
             cards[i].isClicked = !cards[i].isClicked
             
             cardRender()
             typpedCard = i  
-        }else{
-            let i = event.target.dataset.index
+        }else{           
             cards[i].isClicked = !cards[i].isClicked
             cardRender()
             if(cards[i].color === cards[typpedCard].color && i != typpedCard){
                 cards[i].isGuessed = true
                 cards[typpedCard].isGuessed = true
                 guessedCardCounter += 2
-            }else{
-                setTimeout(40000)
-                cards[i].isClicked = false
-                cards[typpedCard].isClicked = false
-                cardRender()
+                typpedCard = undefined
+            }else{    
+                console.log("im heree)))", typpedCard, i)
+                isWaiting = true
+                setTimeout(() => {
+                    
+                    cards[i].isClicked = false
+                    
+                    console.log(cards[typpedCard])
+                    
+                    cards[typpedCard].isClicked = false
+                    cardRender()
+                    typpedCard = undefined
+                    isWaiting = false
+                }, 400)
+                
             }
-            typpedCard = undefined
+            
         }
     }
 
