@@ -1,5 +1,8 @@
+
+
 body {
     background-color: #232323;
+    font-family: "Alumni Sans";
 }
 
 .already-input{
@@ -50,6 +53,7 @@ body {
 
 
 .img-container{
+    position: relative;
     background-color: #232323;
     border: #232323;
     border-radius: 10%;
@@ -72,7 +76,7 @@ h3{
 
 p{
     color: aliceblue;
-    font-family: 'IBM Plex Serif';
+    /* font-family: 'IBM Plex Serif'; */
     font-style: normal;
     font-weight: 400;
     font-size: 2rem;
@@ -90,4 +94,10 @@ ul.menubar > li{
      margin: 20px;
      height: 10rem;
      width: 8rem;
+}
+
+.myImg{
+    aspect-ratio: 16 / 9;
+    /* height: 40%;
+    width: 90%; */
 }

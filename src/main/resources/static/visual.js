@@ -1,6 +1,6 @@
 const field = document.getElementById("cardField")
 
-const NUMBER_OF_CARD = 24
+const NUMBER_OF_CARD = 12
 const DEFAULT_COLOR = 'aliceblue'
 
 const cards = []
@@ -92,7 +92,7 @@ field.onclick = function(event){
     }
 
     if(guessedCardCounter === NUMBER_OF_CARD){
-        alert('')
+        alert('Победа! Обновите страницу для новой игры)')
     }
 }
 
