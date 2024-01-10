@@ -1,7 +1,7 @@
 const alreadyInputDiv = document.getElementById("already-input-div");
 const inputDiv = document.getElementById("input-div");
 const restartBtn = document.getElementById("restart-button");
-
+const info = document.getElementById("info");
 const MAX_SHOW_TEXT_SIZE = 11;
 
 let index = 0;
@@ -34,7 +34,7 @@ getText()
         );
 
         if (index >= text.length)
-          inputDiv.textContent =
+          info.textContent =
             "Победа! Чтобы начать новую тренировку - обновите страницу";
       }
     };
@@ -64,3 +64,9 @@ function makeRequest(method, url) {
     xhr.send();
   });
 }
+
+const logoBtn = document.getElementById("logoImg");
+
+logoBtn.onclick = function () {
+  window.location.href = "/index";
+};
