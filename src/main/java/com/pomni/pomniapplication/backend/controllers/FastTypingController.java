@@ -10,11 +10,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Контроллер отвечающий за обработку запросов, связанных с страницей для тренировки быстрой печати.
+ * Аннотация @Controller отмечает класс как контроллер для Spring
  */
 @Controller
 public class FastTypingController {
+
+    /* Сервис для работы с объектами быстрой печати.
+    Должен быть внедрен в класс через конструктор
+     */
     private final FastTypingService fastTypingService;
 
+    /**
+     * Конструктор принимающий объект сервиса быстрой печати
+     * Аннотация @Autowired указывает на то, что Spring автоматически вставит параметр из Spring контекста.
+     * @param fastTypingService Сервис для работы с объектами быстрой печати
+     */
     @Autowired
     public FastTypingController (FastTypingService fastTypingService) {
         this.fastTypingService = fastTypingService;
@@ -32,7 +42,8 @@ public class FastTypingController {
     /**
      * Метод обработчик GET-запроса с путём /fastTyping/data.
      * Используется для передачи строки на страницу быстрой печати.
-     * @return HTTP-ответ с статусом OK, объектом InputString в теле.
+     * Возвращает случайную строку используя getRandomString из сервиса FastTypingService
+     * @return HTTP-ответ с статусом OK, объектом FastTypingString в теле.
      */
     @GetMapping ("/fastTyping/data")
     @ResponseBody
@@ -40,9 +51,5 @@ public class FastTypingController {
         return ResponseEntity
                 .ok()
                 .body(fastTypingService.getRandomString());
-    }
-
-    public int getRandomID(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
     }
 }
