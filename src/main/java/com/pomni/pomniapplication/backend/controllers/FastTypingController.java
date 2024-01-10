@@ -32,7 +32,7 @@ public class FastTypingController {
     @ResponseBody
     public ResponseEntity <InputString> passString(){
         InputString stringSample = new InputString();
-        stringSample.setText("TEST STRING OOO AAA UUU");
+        stringSample.setText("TEST STRING OOO AAA UWU");
         return ResponseEntity
                 .ok()
                 .body(stringSample);
