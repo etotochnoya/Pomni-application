@@ -102,3 +102,9 @@ function getRandomColor() {
   for (let i = 0; i < 6; i++) color += symbols[Math.floor(Math.random() * 16)];
   return color;
 }
+
+const logoBtn = document.getElementById("logoImg");
+
+logoBtn.onclick = function () {
+  window.location.href = "/index";
+};
