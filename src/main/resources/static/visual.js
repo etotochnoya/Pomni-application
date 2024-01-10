@@ -7,7 +7,6 @@ const cards = [];
 for (let i = 0; i < NUMBER_OF_CARD; i++) {
   let myColor = getRandomColor();
   cards.push({
-    //bgColor: myColor,
     color: DEFAULT_COLOR,
     isClicked: false,
     isGuessed: false,
@@ -103,10 +102,3 @@ function getRandomColor() {
   for (let i = 0; i < 6; i++) color += symbols[Math.floor(Math.random() * 16)];
   return color;
 }
-
-const logoImg = document.getElementById("logoImg");
-logoImg.onclick = function () {
-  let random = Math.floor(Math.random() * 10);
-  if (random === 1)
-    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-};
