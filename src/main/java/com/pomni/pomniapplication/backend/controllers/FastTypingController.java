@@ -1,10 +1,13 @@
 package com.pomni.pomniapplication.backend.controllers;
 
+import com.pomni.pomniapplication.backend.DataBase;
 import com.pomni.pomniapplication.backend.model.InputString;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.xml.crypto.Data;
 
 /**
  * Контроллер отвечающий за обработку запросов, связанных с страницей для тренировки быстрой печати.
@@ -32,9 +35,14 @@ public class FastTypingController {
     @ResponseBody
     public ResponseEntity <InputString> passString(){
         InputString stringSample = new InputString();
-        stringSample.setText("TEST STRING OOO AAA UWU");
+        DataBase.CreateConnection();
+        stringSample.setText(DataBase.selectByID(getRandomID(1, DataBase.getIdCount()+1)));
         return ResponseEntity
                 .ok()
                 .body(stringSample);
+    }
+
+    public int getRandomID(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 }
