@@ -1,1 +1,1 @@
-rootProject.name = "pomni-application"
+rootProject.name = "Pomni-application"
